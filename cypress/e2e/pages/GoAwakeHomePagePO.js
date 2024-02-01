@@ -5,11 +5,11 @@ class homeObjects {
 
     filterObjects() {
             this.selectors = {
-                filterCustomer: '/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-fatigue-v2/div/nb-card/focus-filter-v2/div/div[1]/focus-tree-input/div',
+                filterCustomer: '/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/filters-outlet/nb-card/focus-filter-v2/div/div[1]/focus-tree-input/div',
                 filterDriver: '/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-fatigue-v2/div/nb-card/focus-filter-v2/div/div[2]/focus-tree-input/div/span',
                 filterVehicle: '/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-fatigue-v2/div/nb-card/focus-filter-v2/div/div[3]/focus-tree-input/div/span',
                 selectCustomer: '/html/body/div[2]/div/p-scrollpanel/div/div[1]/div/span/tree-root/tree-viewport/div/div/tree-node-collection/div/tree-node[8]/div/div/label',
-                switchOnline: '/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-fatigue-v2/div/div[2]/div[1]/nb-card/nb-card-header/div/div[2]/div/div[4]/nb-action/label/div/span'
+                switchOnline: '/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/filters-outlet/ngx-fatigue-v2/div/div[2]/div[1]/nb-card/nb-card-header/div/div[2]/div/div[4]/nb-action/label/div/span'
             };
         return this.selectors
     }
