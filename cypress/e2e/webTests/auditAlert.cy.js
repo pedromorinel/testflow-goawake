@@ -1,18 +1,25 @@
+import { goAwakeNoCaptcha } from "../pages/GoAwakeLinks"
+import homeObjects  from "../pages/GoAwakeHomePage"
+import auditObjects from '../pages/GoAwakeAuditPage'
+
 describe('Audit Alert', () => {
-    it('passes', () => {
-        cy.viewport(1920, 1080)
-        cy.visit('https://qa.goawakecloud.com.br/#/pages/ui-alarms/fatigue-v2?t=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwLm1vcmluZWwiLCJpc3MiOiJnb2F3YWtlLXBvcnRhbCIsImV4cCI6MTY4OTk4MzgyMDc4OCwidXNlciI6eyJpZCI6MzE1MSwiZnVsbE5hbWUiOiJQZWRybyBNb3JpbmVsIn19.q29_qu5fxRD1FnmPzd_KBiUktG8J18fYbxjuqbbpYKs')
-        cy.wait(5000)
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/nb-sidebar[1]/div/div/nb-menu/ul/li[3]/a/span').click()
-        cy.wait(5000)
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/nb-layout-header/nav/ngx-header/nb-actions/nb-action[3]/div/span').click()
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-audit/div[2]/div/nb-card/nb-card-body/p-table/div/div[1]/table/thead/tr[1]/th[11]').click()
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-audit/div[2]/div/nb-card/nb-card-body/p-table/div/div[1]/table/thead/tr[1]/th[11]').click()
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-audit/div[2]/div/nb-card/nb-card-body/p-table/div/div[1]/table/tbody/tr[1]/td[13]/span[1]/button').click()
-        cy.wait(3000)
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-audit/div[3]/div/div/div[2]/div/div/div/div/div/div/button[1]').click()
-        cy.wait(3000)
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-audit/div[6]/div/div/div/div/div/div[1]/div/textarea').click().type('Validação Correta')
-        cy.xpath('/html/body/ngx-app/ngx-pages/ngx-sample-layout/nb-layout/div/div/div/div/div/nb-layout-column/ngx-ui-alarms/ngx-audit/div[6]/div/div/div/div/div/div[2]/div[1]/button').click()
+    it('passes @4', () => {
+        const auditScreen = homeObjects.navBar();
+        const auditFilters = auditObjects.filters();
+        const auditFlow = auditObjects.auditTable();
+        cy.viewport(1920, 1080);
+        goAwakeNoCaptcha();
+        cy.wait(5000);
+        cy.get(auditScreen.auditPage).click();
+        cy.wait(3000);
+        cy.get(auditFilters.treatedIn).click().click();
+        cy.get(auditFlow.alertComunicate).click();
+        cy.get(auditFlow.auditButton).click();
+        cy.get(auditFlow.auditComment).click().type('Auditoria Validada');
+        cy.intercept('POST', 'https://api-qa.goawakecloud.com.br/api/alarmsAuditByDateInterval/customers').as('customers')
+        cy.get(auditFlow.auditApprove).click();
+        cy.wait('@customers').then((interception) => {
+        expect(interception.response.statusCode).to.eq(200);
+        })
     })
   })

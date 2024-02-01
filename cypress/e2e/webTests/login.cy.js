@@ -1,8 +1,8 @@
-import { goAwakeLogin} from "../pages/GoAwakeLinksPO";
-import loginPages from "../pages/GoAwakeLoginPagePO";
+import { goAwakeLogin} from "../pages/GoAwakeLinks";
+import loginPages from "../pages/GoAwakeLoginPage";
 
 describe('Login', () => {
-  it('passes', () => {
+  it('passes @1', () => {
     const goAwakeLoginPage = loginPages.goAwakeLoginPage();
     goAwakeLogin();
     cy.wait(5000)
