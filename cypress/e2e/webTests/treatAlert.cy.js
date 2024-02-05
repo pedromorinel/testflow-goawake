@@ -32,5 +32,3 @@ describe('Trata Alerta', () => {
         expect(interception.response.statusCode).to.eq(200);})
     })
   })
-
-  
