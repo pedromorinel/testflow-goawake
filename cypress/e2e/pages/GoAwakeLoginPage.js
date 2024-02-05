@@ -12,11 +12,11 @@ class loginPages {
       return this.selectors;
     }
 
-    gestãoLoginPage() {
+    managementLoginPage() {
       this.selectors = {
-          usernameInput: '/html/body/app-root/app-auth-layout/div/div/div/app-login/fieldset/form/mat-form-field[1]/div/div[1]/div[3]/input',
-          passwordInput: '/html/body/app-root/app-auth-layout/div/div/div/app-login/fieldset/form/mat-form-field[2]/div/div[1]/div[3]/input',
-          loginButton: '/html/body/app-root/app-auth-layout/div/div/div/app-login/fieldset/form/button'
+          usernameInput: '#mat-input-0',
+          passwordInput: '#mat-input-1',
+          loginButton: 'body > app-root > app-auth-layout > div > div > div > app-login > fieldset > form > button'
       };
       return this.selectors;
     }
