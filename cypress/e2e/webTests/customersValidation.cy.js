@@ -2,7 +2,7 @@ import { goAwakeNoCaptcha } from "../pages/GoAwakeLinks";
 import homeObjects from '../pages/GoAwakeHomePage';
 
 describe('Switch Online', () => {
-    it('passes @2', () => {
+    it('passes @1', () => {
         const filterObjects = homeObjects.filterObjects();
         cy.viewport(1920, 1080)
         goAwakeNoCaptcha();

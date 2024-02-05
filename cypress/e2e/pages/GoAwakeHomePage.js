@@ -19,6 +19,8 @@ class homeObjects {
     treatmentObjects() {
             this.selectors = {
                 visualizeAlert: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-fatigue-v2 > div > div:nth-child(2) > div.col-md-10.pr-0 > nb-card > nb-card-body > p-table > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9)',
+                invalidateAlert: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-fatigue-v2 > div > div.modal.fade.in.show > div > div > treatment-flow > div > div > div.treat__content > div.ng-star-inserted > treatment-step-one > div > div > div.row.mt-3.step__footer > div:nth-child(1) > button',
+                confirmInvalidation: 'body > div.alertify.ajs-movable.ajs-closable.ajs-pinnable.ajs-pulse > div.ajs-modal > div > div.ajs-footer > div.ajs-primary.ajs-buttons > button.ajs-button.ajs-ok',
                 selectMedia: '#itemToHistory',
                 stepTwo: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-fatigue-v2 > div > div.modal.fade.in.show > div > div > treatment-flow > div > div > div.treat__content > div.ng-star-inserted > treatment-step-one > div > div > div.row.mt-3.step__footer > div:nth-child(3)',
                 stepThree: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-fatigue-v2 > div > div.modal.fade.in.show > div > div > treatment-flow > div > div > div.treat__content > div.ng-star-inserted > treatment-step-two > div > div > div.row.mt-3.step__footer > div:nth-child(3)',

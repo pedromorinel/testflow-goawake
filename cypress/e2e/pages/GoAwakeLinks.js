@@ -8,6 +8,9 @@ class goAwakeLinks {
     goAwakeGestao() {
         cy.visit('https://gestao-qa.goawakecloud.com.br/#/dashboard/home')
     }
+    goAwakeSignature(auditId) {
+        cy.visit('https://qa.goawakecloud.com.br/#/pages/ui-alarms/audit/media/'+auditId)
+    }
 }
 
 export default new goAwakeLinks();

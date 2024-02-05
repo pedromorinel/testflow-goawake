@@ -18,7 +18,7 @@ const client = new Client({
     console.log('Conectado ao banco de dados PostgreSQL');
   });
   
-  const selectQuery = 'SELECT id FROM alarm WHERE imei = \'869247060002836\' ORDER BY datetime desc LIMIT 1';
+  const selectQuery = 'SELECT id FROM alarm ORDER BY datetime desc LIMIT 1';
   
   client.query(selectQuery, (err, result) => {
     if (err) {

@@ -23,10 +23,13 @@ class auditObjects {
 
     auditTable() {
         this.selectors = {
+            alertComunicateWithSignature: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div:nth-child(3) > div > nb-card > nb-card-body > p-table > div > div.ui-table-wrapper.ng-star-inserted > table > tbody > tr:nth-child(1) > td:nth-child(13) > span:nth-child(1) > span',
             alertComunicate: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div:nth-child(3) > div > nb-card > nb-card-body > p-table > div > div.ui-table-wrapper.ng-star-inserted > table > tbody > tr:nth-child(1) > td:nth-child(13) > span:nth-child(1) > button',
             auditButton: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div.modal.fade.in.show > div > div > div.modal-body > div.row > div > div > div > div > div > button.revisar-btn',
-            auditComment: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div.modal.fade.in.show > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div > textarea',
-            auditApprove: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div.modal.fade.in.show > div > div > div > div > div:nth-child(2) > div.row.revisarBtnOpcoes > div:nth-child(1) > button'
+            auditComment: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div.modal.fade.in.show > div > div > div > div > div:nth-child(2) > div:nth-child(5) > div',
+            auditApprove: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div.modal.fade.in.show > div > div > div > div > div:nth-child(2) > div.row.revisarBtnOpcoes > div:nth-child(1) > button',
+            signatureText: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div.modal.fade.in.show > div > div > div.modal-body > div.row > div > div > div > div > span',
+            signatureDiv: 'body > ngx-app > ngx-pages > ngx-sample-layout > nb-layout > div > div > div > div > div > nb-layout-column > filters-outlet > ngx-audit > div.modal.fade.in.show > div > div > div.modal-body > div.row > div > div > treatment-step-four > div > div > div:nth-child(1) > div.col-md-4.step-one__list-pictures.p-0 > div'
         }
         return this.selectors;
     }
