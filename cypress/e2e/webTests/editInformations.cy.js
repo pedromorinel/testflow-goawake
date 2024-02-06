@@ -6,6 +6,7 @@ import {generateRandomNumber} from "../resources/randomNumber";
 
 const managementLogin = loginPages.managementLoginPage();
 const navBar = managementObjects.navBar();
+const driverPage = driverPageObjects.driverObjects();
 
 describe('Edit driver', () => {
     it('passes @1', () => {
@@ -24,6 +25,7 @@ describe('Edit driver', () => {
         cy.get(driverPage.inputCustomer).click().type('Creare Sistemas')
         cy.get(driverPage.selectCustomer).click();
         cy.get(driverPage.driverId).invoke('text').then((text) => {
+            const randomDriversLicence = generateRandomNumber();
             const driverIdentification = text.trim();
             cy.wrap(driverIdentification).as('driverIdentification');
             cy.get(driverPage.editDriver).click();

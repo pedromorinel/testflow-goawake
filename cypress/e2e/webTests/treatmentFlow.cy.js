@@ -17,6 +17,7 @@ describe('Invalidate Alert', () => {
     cy.viewport(1920, 1080);
     cy.exec('node ./cypress/e2e/resources/postAlert.js');
     goAwakeNoCaptcha();
+    cy.wait(4000);
     cy.get(filters.filterCustomer).click();
     cy.get(filters.selectCustomer).click();
     cy.get(filters.switchOnline).click();
@@ -48,9 +49,9 @@ describe('Treat Alert', () => {
     cy.get(filters.selectDriver).click();
     cy.get(filters.switchOnline).click();
     cy.get(treatment.visualizeAlert).click();
-    cy.get(treatment.selectMedia).click();
-    cy.get(treatment.stepTwo).click();
-    cy.get(treatment.stepThree).click();
+    cy.get(treatment.selectMedia).wait(2000).click();
+    cy.get(treatment.stepTwo).wait(2000).click();
+    cy.get(treatment.stepThree).wait(2000).click();
     cy.get(treatment.filterTreatment).click();
     cy.get(treatment.selectTreatment).click();
     cy.intercept('POST', 'https://api-qa.goawakecloud.com.br/api//v2/audit/').as('audit');
