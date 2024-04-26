@@ -3,13 +3,25 @@ class goAwakeLinks {
         cy.visit('https://login-qa.goawakecloud.com.br/pt-br/goawake?cc=true');
     }
     goAwakeNoCaptcha() {
-        cy.visit('https://qa.goawakecloud.com.br/#/auth/external?t=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwLm1vcmluZWwiLCJpc3MiOiJnb2F3YWtlLXBvcnRhbCIsImV4cCI6MTY5Njg5MjgwODY1MiwidXNlciI6eyJpZCI6MzE1MSwiZnVsbE5hbWUiOiJQZWRybyBNb3JpbmVsIn19.Pqif2cXA3Iy4nBzeYzEGqsnqXQhow1xneOfWiB28HX8');
+        cy.request({
+            method: 'POST',
+            url: 'https://api-qa.goawakecloud.com.br/api/no-recaptcha/login',
+            body: {
+                username: 'p.morinel',
+                password: 'PedroCM101.'
+            }
+        }).then((response) => {
+            expect(response.status).to.eq(200);
+            const token = response.body.token;
+            cy.log('Token: ' + token);
+            cy.visit('https://qa.goawakecloud.com.br/#/auth/external?t=' + token);
+        })
     }
     goAwakeGestao() {
         cy.visit('https://gestao-qa.goawakecloud.com.br/#/dashboard/home')
     }
     goAwakeSignature(auditId) {
-        cy.visit('https://qa.goawakecloud.com.br/#/pages/ui-alarms/audit/media/'+auditId)
+        cy.visit('https://qa.goawakecloud.com.br/#/pages/ui-alarms/audit/media/' + auditId)
     }
 }
 
