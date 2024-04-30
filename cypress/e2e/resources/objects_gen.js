@@ -1,4 +1,3 @@
-// objects_gen.js
 const amqp = require('amqplib');
 const { differenceInMinutes, addMinutes } = require('date-fns');
 const _ = require('lodash');

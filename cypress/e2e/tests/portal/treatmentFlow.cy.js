@@ -15,14 +15,16 @@ const auditFilters = auditObjects.filters();
 describe('Invalidate Alert', () => {
   it('passes ', () => {
     cy.viewport(1920, 1080);
-    cy.exec('node ./cypress/e2e/resources/postAlert.js');
+    cy.exec('node ./cypress/e2e/resources/generateLowRiskAlert.js');
     goAwakeNoCaptcha();
     cy.wait(4000);
     cy.get(filters.filterCustomer).click();
+    cy.get(filters.searchCustomer).click().type('Creare Sistemas');
     cy.get(filters.selectCustomer).click();
+    cy.wait(4000);
     cy.get(filters.switchOnline).click();
     cy.get(treatment.visualizeAlert).should('exist').click();
-    cy.get(treatment.selectMedia).click();
+    cy.get(treatment.selectMedia).click({multiple: true});
     cy.intercept('POST', 'https://api-qa.goawakecloud.com.br/api/alarmsByDateInterval/customers').as('customers');
     cy.get(treatment.invalidateAlert).click();
     cy.get(treatment.confirmInvalidation).click();
@@ -35,21 +37,22 @@ describe('Invalidate Alert', () => {
 describe('Treat Alert', () => {
   it('passes @2', () => {
     cy.viewport(1920, 1080);
-    cy.exec('node ./cypress/e2e/resources/postAlert.js');
+    cy.exec('node ./cypress/e2e/resources/generateLowRiskAlert.js');
     cy.exec('node ./cypress/e2e/resources/updateDriver.js');
     goAwakeNoCaptcha();
     cy.intercept('POST', 'https://api-qa.goawakecloud.com.br/api/alarmsByDateInterval/customers').as('customers');
     cy.wait(5000);
     cy.get(filters.filterCustomer).click();
+    cy.get(filters.searchCustomer).click().type('Creare Sistemas');
     cy.get(filters.selectCustomer).click();
     cy.wait(4000);
     cy.get(filters.filterDriver).click();
-    cy.get(filters.searchDriver).click().type('Exemplo Motorista');
+    cy.get(filters.searchDriver).click().type('Nubia');
     cy.wait(3000);
     cy.get(filters.selectDriver).click();
     cy.get(filters.switchOnline).click();
     cy.get(treatment.visualizeAlert).click();
-    cy.get(treatment.selectMedia).wait(2000).click();
+    cy.get(treatment.selectMedia).wait(2000).click({multiple: true});
     cy.get(treatment.stepTwo).wait(2000).click();
     cy.get(treatment.stepThree).wait(2000).click();
     cy.get(treatment.filterTreatment).click();
@@ -92,6 +95,7 @@ describe('Validate Signature and Approve Audit', () => {
     cy.viewport(1920, 1080) 
     goAwakeNoCaptcha();
     cy.get(navBar.auditPage).click();
+    cy.wait(4000);
     cy.get(auditFilters.treatedIn).click().click();
     cy.get(auditFlow.alertComunicate).click();
     cy.get(auditFlow.signatureText).should('contain', 'Signed by');

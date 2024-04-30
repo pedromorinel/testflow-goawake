@@ -12,10 +12,5 @@ describe('Login', () => {
     cy.xpath(goAwakeLoginPage.usernameInput).type("p.morinel");
     cy.xpath(goAwakeLoginPage.passwordInput).type("PedroCM101.");
     cy.xpath(goAwakeLoginPage.loginButton).click();
-    cy.wait(5000)
-    cy.window().then((win) => {
-    const token = win.localStorage.getItem('access_token');
-    cy.wrap(token).as('token');
-    cy.log('Token: ' + token);
-    })});
+    });
   });;

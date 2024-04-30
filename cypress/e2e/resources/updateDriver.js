@@ -18,7 +18,7 @@ const client = new Client({
     console.log('Conectado ao banco de dados PostgreSQL');
   });
   
-  const selectQuery = 'SELECT id FROM alarm ORDER BY datetime desc LIMIT 1';
+  const selectQuery = 'SELECT id FROM alarm ORDER BY id desc LIMIT 1';
   
   client.query(selectQuery, (err, result) => {
     if (err) {
@@ -28,7 +28,7 @@ const client = new Client({
     const valorDesejado = result.rows[0].id;
     console.log('Valor do campo desejado:', valorDesejado);
   
-    const updateQuery = 'UPDATE alarm SET fk_driver_id = 172448 WHERE id = $1';
+    const updateQuery = 'UPDATE alarm SET fk_driver_id = 82487 WHERE id = $1';
   
     client.query(updateQuery, [valorDesejado], (err, result) => {
       if (err) {
