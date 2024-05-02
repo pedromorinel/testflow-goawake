@@ -53,8 +53,8 @@ async function main() {
                       latitude: -6.422131,
                       longitude: -49.954813,
                       speed: 31.0,
-                      urlMovie: 'https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grkocmhf7oyf/b/JimiObjects/o/EVENT_862798050671540_00000000_2023_05_23_12_42_32_12.mp4',
-                      urlPicture: 'https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grkocmhf7oyf/b/JimiObjects/o/EVENT_862798050671540_00000000_2023_05_23_12_42_32_12.png',
+                      urlMovie: 'https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grkocmhf7oyf/b/PD-JimiG5-V6Objects/o/EVENT_862798051242689_00000000_2024_04_30_15_49_45_15.mp4',
+                      urlPicture: 'https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grkocmhf7oyf/b/PD-JimiG5-V6Objects/o/EVENT_862798051242689_00000000_2024_04_30_15_49_45_15.png',
                     },
                   ],
                   device: {

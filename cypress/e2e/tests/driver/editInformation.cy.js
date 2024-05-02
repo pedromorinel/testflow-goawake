@@ -22,7 +22,7 @@ describe('Edit driver', () => {
             cy.wrap(driverIdentification).as('driverIdentification');
             cy.get(driverPage.editDriver).click();
             cy.get(driverPage.nameInput).click().clear().type('Exemplo');
-            cy.intercept('PUT', 'https://api-qa.goawakecloud.com.br/api//v2/driver/'+driverIdentification).as('driverUpdate');
+            cy.intercept('PUT', 'https://api-qa.goawakecloud.com.br/api//v2/driver/'+driverIdentification+'?unlinkBadge=false').as('driverUpdate');
             cy.get(driverPage.driverLicenceInput).click().clear().type(randomDriversLicence);
             cy.get(driverPage.confirmEdit).click();
             cy.wait ('@driverUpdate').then((interception) => {
